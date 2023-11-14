@@ -15,7 +15,7 @@
                     :name="card.name"
                     :archetype="card.archetype"
                     />
-                    <!-- <p >{{ card.name }}</p> -->
+                    <LoadingComponent v-if="store.loading"/>
                 </div>
 
             </section>
@@ -25,28 +25,21 @@
 
 <script>
     import { store } from '../data/store.js';
-    import CardComponent from './main/CardComponent.vue'
+    import CardComponent from './main/CardComponent.vue';
+    import LoadingComponent from './main/LoadingComponent.vue';
 
     export default {
         name: 'MainComponent',
         components: {
-            CardComponent
+            CardComponent,
+            LoadingComponent
         },
         data() {
             return {
                 store
             }
         },
-
-        methods: {
-        //     getCard() {
-        //         axios.get(store.apiUrl).then((response) => {
-        //         console.log(response.data.data[0])
-        //         console.log(response.data.data[0].name)
-        //         console.log(response.data.data[0].card_images[0].image_url)
-        //     })
-        // }
-        }        
+      
     }
 </script>
 

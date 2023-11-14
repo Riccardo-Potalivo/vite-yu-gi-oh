@@ -20,15 +20,22 @@
 
     data() {
       return {
-        store
+        store,
+        params: {
+          num: 20,
+          offset: 0
+        }
       }
     },
 
     methods: {
       getCards() {
-        axios.get(store.apiUrl).then((response) => {
+        axios.get(store.apiUrl, {params: this.params}).then((response) => {
           console.log(response.data.data);
           store.cardList = response.data.data;
+        })
+        .finally(() => {
+          store.loading = false
         })
       }
     },
