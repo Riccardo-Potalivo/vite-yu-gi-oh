@@ -14,7 +14,8 @@
 
     components: {
       HeaderComponent,
-      MainComponent
+      MainComponent,
+      
     },
 
     data() {
@@ -24,16 +25,18 @@
     },
 
     methods: {
-      getCard() {
+      getCards() {
         axios.get(store.apiUrl).then((response) => {
-          console.log(response.data.data)
+          console.log(response.data.data);
+          store.cardList = response.data.data;
         })
       }
     },
 
     created() {
-      this.getCard()
+      this.getCards()
     },
+
 
     computed: {
 
