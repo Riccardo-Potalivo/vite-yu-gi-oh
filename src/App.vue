@@ -4,8 +4,11 @@
 </template>
 
 <script>
-  import HeaderComponent from './components/HeaderComponent.vue'
-  import MainComponent from './components/MainComponent.vue'
+  import { store } from './data/store.js';
+  import axios from 'axios';
+  import HeaderComponent from './components/HeaderComponent.vue';
+  import MainComponent from './components/MainComponent.vue';
+
   export default {
     name: 'App',
 
@@ -16,16 +19,20 @@
 
     data() {
       return {
-
+        store
       }
     },
 
     methods: {
-
+      getCard() {
+        axios.get(store.apiUrl).then((response) => {
+          console.log(response.data.data)
+        })
+      }
     },
 
     created() {
-
+      this.getCard()
     },
 
     computed: {
