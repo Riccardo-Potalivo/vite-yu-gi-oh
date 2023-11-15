@@ -21,6 +21,7 @@
     import { store } from '../data/store.js';
     import CardComponent from './main/CardComponent.vue';
     import LoadingComponent from './main/LoadingComponent.vue';
+    import SearchComponent from './main/SearchComponent.vue';
 
     export default {
         name: 'MainComponent',
@@ -31,6 +32,11 @@
         data() {
             return {
                 store
+            }
+        },
+        methods: {
+            setParams(search) {
+            console.log(search)
             }
         },
         methods: {

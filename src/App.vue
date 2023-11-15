@@ -27,6 +27,7 @@
       return {
         store,
         params: {
+          archetype: null,
           num: 20,
           offset: 0
         }
@@ -40,12 +41,20 @@
           store.cardList = response.data.data;
         })
         .finally(() => {
-          store.loading = false
+          store.loading = false;
         })
       },
-
+      
       setParams(search) {
         console.log(search)
+        
+        if(search) {
+          this.params.archetype = search;
+        } else {
+          this.params = null
+        }
+
+        this.getCards()
       }
     },
 
