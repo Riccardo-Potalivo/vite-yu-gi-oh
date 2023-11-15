@@ -28,7 +28,7 @@
         store,
         params: {
           archetype: null,
-          num: 20,
+          num: 2000,
           offset: 0
         }
       }
@@ -74,7 +74,7 @@
 
 
 main {
-    background-color: $PrimaryColor;
+  background-color: $PrimaryColor;
 }
 
 </style>
