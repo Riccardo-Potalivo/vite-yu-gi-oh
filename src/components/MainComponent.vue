@@ -2,7 +2,7 @@
     <main>
         <div class="container">
             <section class="p-3">
-                
+                <SearchComponent @filter-change="setParams"/>
             </section>
 
             <section class="card_container">
@@ -27,18 +27,25 @@
     import { store } from '../data/store.js';
     import CardComponent from './main/CardComponent.vue';
     import LoadingComponent from './main/LoadingComponent.vue';
+    import SearchComponent from './main/SearchComponent.vue';
 
     export default {
         name: 'MainComponent',
         components: {
             CardComponent,
-            LoadingComponent
+            LoadingComponent,
+            SearchComponent
         },
         data() {
             return {
                 store
             }
         },
+        methods: {
+            setParams(search) {
+            console.log(search)
+            }
+        }
       
     }
 </script>
