@@ -1,26 +1,20 @@
 <template>
-    <main>
-        <div class="container">
-            <section class="p-3">
-                
-            </section>
+    <div class="container">
+        <section class="card_container">
+            <div>
+                <h6 class="m-0">Found {{ store.cardList.length }} cards</h6>
+            </div>
+            <div class="row g-4">
+                <CardComponent v-for="(card, index) in store.cardList" :key="index"
+                :img="card.card_images[0].image_url"
+                :name="card.name"
+                :archetype="card.archetype"
+                />
+                <LoadingComponent v-if="store.loading"/>
+            </div>
 
-            <section class="card_container">
-                <div>
-                    <h6 class="m-0">Found {{ store.cardList.length }} cards</h6>
-                </div>
-                <div class="row g-4">
-                    <CardComponent v-for="(card, index) in store.cardList" :key="index"
-                    :img="card.card_images[0].image_url"
-                    :name="card.name"
-                    :archetype="card.archetype"
-                    />
-                    <LoadingComponent v-if="store.loading"/>
-                </div>
-
-            </section>
-        </div>
-    </main>
+        </section>
+    </div>
 </template>
 
 <script>
@@ -32,23 +26,24 @@
         name: 'MainComponent',
         components: {
             CardComponent,
-            LoadingComponent
+            LoadingComponent,
         },
         data() {
             return {
                 store
             }
         },
+        methods: {
+            setParams(search) {
+            console.log(search)
+            }
+        }
       
     }
 </script>
 
 <style lang="scss" scoped>
 @use '../assets/styles/partials/variables' as *;
-
-main {
-    background-color: $PrimaryColor;
-}
 
 .card_container {
     background-color: $White;

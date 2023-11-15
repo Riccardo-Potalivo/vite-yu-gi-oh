@@ -1,6 +1,9 @@
 <template>
   <HeaderComponent/>
-  <MainComponent/>
+  <main>
+    <SearchComponent @filter-change="setParams"/>
+    <MainComponent/>
+  </main>
 </template>
 
 <script>
@@ -8,6 +11,8 @@
   import axios from 'axios';
   import HeaderComponent from './components/HeaderComponent.vue';
   import MainComponent from './components/MainComponent.vue';
+  import SearchComponent from './components/main/SearchComponent.vue';
+
 
   export default {
     name: 'App',
@@ -15,7 +20,7 @@
     components: {
       HeaderComponent,
       MainComponent,
-      
+      SearchComponent      
     },
 
     data() {
@@ -37,6 +42,10 @@
         .finally(() => {
           store.loading = false
         })
+      },
+
+      setParams(search) {
+        console.log(search)
       }
     },
 
@@ -52,5 +61,11 @@
 </script>
 
 <style lang="scss" scoped>
+@use './assets/styles/partials/variables' as *;
+
+
+main {
+    background-color: $PrimaryColor;
+}
 
 </style>
