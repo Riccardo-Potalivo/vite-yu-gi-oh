@@ -39,11 +39,7 @@
             console.log(search)
             }
         },
-        methods: {
-            setParams(search) {
-            console.log(search)
-            }
-        }
+
       
     }
 </script>
